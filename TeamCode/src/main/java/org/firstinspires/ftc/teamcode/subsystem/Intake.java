@@ -14,7 +14,7 @@ import org.firstinspires.ftc.teamcode.utils.NebulaMotor;
 
 public class Intake extends SubsystemBase {
 	public enum IntakeValue {
-        OUTTAKE (0),
+        OUTTAKE (0),//
         INTAKE  (0),
         INTAKE_MORE(0),
         STOP    (0);
