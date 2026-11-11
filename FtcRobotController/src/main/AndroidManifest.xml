@@ -17,7 +17,7 @@
     <!-- Indicates to the ControlHubUpdater what the latest version of the Control Hub is that this app supports -->
     <meta-data
         android:name="org.firstinspires.latestSupportedControlHubVersion"
-        android:value="1" />
+        android:intakeValue="1" />
 
     <!-- The main robot controller activity -->
     <activity android:name="org.firstinspires.ftc.robotcontroller.internal.PermissionValidatorWrapper"
@@ -51,7 +51,7 @@
       <!--org.firstinspires.main.entry indicates that this app is compatible with the Dragonboard Control Hub-->
       <meta-data
           android:name="org.firstinspires.main.entry"
-          android:value="true" />
+          android:intakeValue="true" />
     </activity>
 
     <!-- The robot controller service in which most of the robot functionality is managed -->

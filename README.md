@@ -302,7 +302,7 @@ voltage was not updated on driver station if OpMode did not send any telemetry.
   * To connect it directly, you need this [cable](https://www.sparkfun.com/products/25596)
 * Adds ConceptLEDStick OpMode
 * Adds Blocks for colors black, blue, cyan, dkgray, gray, green, ltgray, magenta, red, white, and yellow.
-* Adds an "evaluate but ignore result" Block that executes the connected block and ignores the result. Allows you to call a function and ignore the return value.
+* Adds an "evaluate but ignore result" Block that executes the connected block and ignores the result. Allows you to call a function and ignore the return intakeValue.
 * Adds I2C driver for Maxbotix Maxsonar I2CXL sonar rangefinder
 * Adds Blocks for setPwmEnable, setPwmDisable, and isPwmEnabled for servos and CR servos.
 * In the Blocks editor: a \n in the ExportToBlocks annotation's comment field is displayed as a line break.
@@ -346,7 +346,7 @@ voltage was not updated on driver station if OpMode did not send any telemetry.
 
 ### Enhancements
 * Adds explanatory text to failed items on the inspection activities.  To view the explanatory text tap the red warning icon for a failed item.
-* In the Blocks editor: added a new kind of variable set block that sets the variable and also returns the new value.
+* In the Blocks editor: added a new kind of variable set block that sets the variable and also returns the new intakeValue.
 * Changes the way that camera controls behave for a SwitchableCamera. Now, each method (such as getExposure, getMinExposure, getMaxExposure, setExposure for ExposureControl) acts on the currently active camera.
 * Adds support for the REV USB PS4 Compatible Gamepad (REV-31-2983)
 * Adds ConceptAprilTagMultiPortal OpMode
@@ -443,7 +443,7 @@ voltage was not updated on driver station if OpMode did not send any telemetry.
 
 ### Bug Fixes
 * Fixes a bug which prevented PlayStation gamepads from being used in bluetooth mode. Bluetooth is NOT legal for competition but may be useful to allow a DS device to be used while charging, or at an outreach event.
-* Fixes a bug where a Blocks OpMode's Date Modified value can change to December 31, 1969, if the Control Hub is rebooted while the Blocks OpMode is being edited.
+* Fixes a bug where a Blocks OpMode's Date Modified intakeValue can change to December 31, 1969, if the Control Hub is rebooted while the Blocks OpMode is being edited.
 * Fixes the automatic TeleOp preselection feature (was broken in 8.2)
 * Fixes a bug where passing an integer number such as 123 to the Telemetry.addData block that takes a number shows up as 123.0 in the telemetry.
 * Fixes OnBotJava autocomplete issues:
@@ -604,7 +604,7 @@ This is a bug fix only release to address the following four issues.
     unnecessary warnings.
   * With this change, it is very important for Java users to retrieve all needed devices from the
     `HardwareMap` **during the Init phase of the OpMode**. Namely, declare a variable for each hardware
-    device the OpMode will use, and assign a value to each. Do not do this during the Run phase, or your
+    device the OpMode will use, and assign a intakeValue to each. Do not do this during the Run phase, or your
     OpMode may briefly hang while the devices you are retrieving get initialized.
   * OpModes that do not use all of the I2C devices specified in the configuration file should take
     less time to initialize. OpModes that do use all of the specified I2C devices should take the
@@ -856,7 +856,7 @@ This is a bug fix only release to address the following four issues.
 * Adds setGain() and getGain() methods to the NormalizedColorSensor interface
     * By setting the gain of a color sensor, you can adjust for different lighting conditions.
       For example, if you detect lower color values than expected, you can increase the gain.
-    * The gain value is only applied to the argb() and getNormalizedColors() methods, not to the raw color methods.
+    * The gain intakeValue is only applied to the argb() and getNormalizedColors() methods, not to the raw color methods.
       The getNormalizedColors() method is recommended for ease-of-use and clarity, since argb() has to be converted.
     * Updates SensorColor Java sample to demonstrate gain usage
 * Merges SensorREVColorDistance Java sample into SensorColor Java sample, which showcases best practices for all color sensors
@@ -889,7 +889,7 @@ Version 5.5 requires Android Studio 4.0 or later.
     * Parameters declared as boolean or java.lang.Boolean will accept any block that returns boolean.
     * Parameters declared as byte, java.lang.Byte, short, java.lang.Short, int, java.lang.Integer,
       long, or java.lang.Long,  will accept any block that returns a number and will round that
-      value to the nearest whole number.
+      intakeValue to the nearest whole number.
     * Parameters declared as float, java.lang.Float, double, java.lang.Double will accept any
       block that returns a number.
 * Adds telemetry API method for setting display format
@@ -1148,7 +1148,7 @@ Known issues:
      - robotControllerLog.txt would have error messages that included the words "E RobotCore: lynx xmit lock: #### abandoning lock:"
  * Includes fix to correctly list the parent module address for a REV Robotics Expansion Hub in a configuration (.xml) file.
      - Bug in versions 4.0 and 4.1 would incorrect list the address module for a parent REV Robotics device as "1".
-     - If the parent module had a higher address value than the daisy-chained module, then this bug would prevent the Robot Controller from communicating with the downstream Expansion Hub.
+     - If the parent module had a higher address intakeValue than the daisy-chained module, then this bug would prevent the Robot Controller from communicating with the downstream Expansion Hub.
  * Added requirement for ACCESS_COARSE_LOCATION to allow a Driver Station running Android Oreo to scan for Wi-Fi Direct devices.
  * Added google() repo to build.gradle because aapt2 must be downloaded from the google() repository beginning with version 3.2 of the Android Gradle Plugin.
      - Important Note: Android Studio users will need to be connected to the Internet the first time build the ftc_app project.
@@ -1223,7 +1223,7 @@ Changes include:
     - Support for USB connected UVC webcams.
     - Refactored optimized Blocks Vuforia code to support Rover Ruckus image targets.
     - Added programming blocks to support PIDF (proportional, integral, derivative and feed forward) motor control.
-    - Added formatting options (under Telemetry and Miscellaneous categories) so user can set how many decimal places to display a numerical value.
+    - Added formatting options (under Telemetry and Miscellaneous categories) so user can set how many decimal places to display a numerical intakeValue.
     - Support to play audio files (which are uploaded through Blocks web interface) on Driver Station in addition to the Robot Controller.
     - Fixed bug with Download Image of Blocks feature.
     - Support for REV Robotics Blinkin LED Controller.
